@@ -1,0 +1,53 @@
+<html>
+<head>
+<!-- Nhúng file CSS -->
+
+</head>
+<body>
+<!-- Nhúng file JavaScript -->
+<script language="javascript" ></script>
+<form onsubmit="return validate()">
+<div class="register">
+<h1>Đăng ký</h1>
+<p>Vui lòng điền thông tin để đăng ký</p>
+<hr>
+<div id="wepper"></div>
+    <b>Tên đăng nhập</b>
+<input type="text" placeholder="Họ và tên" name="username" id="username">
+<b>Mật khẩu</b>
+<input type="password" placeholder="******" name="password" id="password">
+<b>Nhập lại mật khẩu</b>
+<input type="password" placeholder="******" name="password-repeat" id="password-repeat">
+
+<hr>
+<button>đăng nhap</button>
+</form>
+<script>
+    function validate() {
+var u = document.getElementById("username").value;
+var p1 = document.getElementById("password").value;
+var p2 = document.getElementById("password-repeat").value;
+ 
+if(u== "") {
+message("Vui lòng nhập tên!");
+return false;
+}
+if(p1 == "") {
+message("Vui lòng nhập mật khẩu!");
+return false;
+}
+if(p2 == "") {
+message("Vui lòng xác minh mật khẩu!");
+return false;
+}
+ 
+message("Xin hãy điền đúng thông tin!")
+ 
+return true;
+}
+function message(m){
+    document.getElementById("wepper").innerHTML=m;
+}
+</script>
+</body>
+</html>

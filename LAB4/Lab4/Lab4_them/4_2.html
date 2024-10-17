@@ -1,0 +1,24 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var Comment = new Object();
+            Comment.title = '';
+            Comment.content ='';
+            Comment.fullname ='';
+            Comment.email ='';
+            Comment.addComment = function(){
+                document.write("Tiêu đề"+Comment.title)
+                document.write("HI HI"+Comment.content)
+                document.write("Chó phốc"+Comment.fullname)
+                document.write("Phoc123@.email.com"+Comment.email)
+            }
+            Comment.validateComment = function(){
+                console.log("MỜi nhập tiêu đề"+title);
+                console.log("MỜi nhập content"+content);
+                console.log("Mời nhập họ tên: "+fullname);
+                console.log("Mời nhập email"+email)
+            }
+        </script>
+    </body>
+</html>

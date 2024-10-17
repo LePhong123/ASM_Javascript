@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+        <hr>
+    <div>
+        <span>Tên sách:</span>
+        <input type="text" id="ten-sach"><br><br>
+        <span>Nhà Xuất bản:</span>
+        <input type="text" id="nhaxb"><br><br>
+        <div ng-app="myApp" ng-controller="myController">
+                <span>Số lượng:</span>
+           
+            <input type="number" ng-model="Soa" /> <br>
+            <span>Đơn giá:</span>
+            <input style="margin-top: 10px;" type="number" ng-model="Sob" />
+            <select id="don-gia">
+                <option value="1">VNĐ</option>
+                <option value="2">USD</option>
+                <option value="3">Đ</option>
+            </select><br><br>
+            <span>Tổng tiền</span>
+        <input type="number" id="tong" value="{{Soa * Sob}}" ><br><br>
+        </div>
+        
+        <span>Ngày/Tháng/Năm sản xuất:</span>
+        <input type="date" min="12/12/2008"><br><br>
+        <span>Loại sách :</span>
+        <select id="" multiple>
+            <option value="">Sách thiếu nhi</option>
+            <option value="">Sách khoa học kĩ thuật</option>
+            <option value="">Sách văn học</option>
+            <option value="">Sách Lịch sử</option>
+            <option value="">Sách địa lý</option>
+            <option value="">Sách ngoại ngữ </option>
+            <option value="">Sách pháp luật</option>
+            <option value="">Loại sách khác</option>
+        </select><br><br>
+        <span>Người nhập :</span>
+        <input type="text"><br><br>
+        <span>Số sản phẩm đang có</span>
+        <input type="checkbox">Trong kho
+        <input type="checkbox">Bày bán
+        <input type="checkbox">Chưa kiểm tra <br><br>
+        <span>Nơi nhận hàng</span>
+        <input type="radio" name="dia_chi" onclick="hien_thi(false)" >Nội thành
+        <input type="radio" name="dia_chi" onclick="hien_thi(true)">Ngoại thành
+        <div id="phivc">
+            <span>Phí vận chuyển</span>
+            <input type="text" value="30000">
+        </div>
+        <button value="Sumbit">Hiển thị thông tin</button>
+        <button type="reset">Xóa thông tin</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>var app = angular.module('myApp',[]);
+        app.controller('myController', function ($scope) {
+          $scope.Soa = 1;
+          $scope.Sob = 2;
+        });</script>
+
+
+
+    <script>
+      function hien_thi(visible){
+          var phi_vc = document.getElementById("phivc");
+          phi_vc.style.display=visible ? "" : "none";
+      }
+    </script>
+    <hr>
+    <div>
+        <a href="#"><img id="phong" onclick="changeImage()" src="icon.jpg"  alt="" 
+            >
+            <script>
+                var index = 1;
+                function changeImage(){
+                    var imgs=["yeu.jpg","bantim.jpg","icon.jpg","ngau.jpg","sung.jpg"];
+                    document.getElementById('phong').src = imgs[index];
+                    index++;
+                    if(index==5){
+                        index=0;
+                    }     
+                }
+                setInterval(changeImage,1000);
+            </script>
+        </a>
+    </div> 
+</body>
+</html>

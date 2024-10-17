@@ -1,0 +1,26 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+           function ok(){
+               const a = document.getElementById('pro')
+               const b = document.getElementById('qty')
+
+               const dataprice = Number(a.getAttribute('data-price'))
+               const qty = Number(b.value)
+
+               const name = document.getElementById('name')
+               const amount =document.getElementById('amount')
+
+               name.innerText ='iPhone 9'
+               amount.innerText ='$'+(dataprice * qty)
+            }
+        </script>
+        <labe1 id="pro" data-price="1950">iPhone 9</labe1>
+        <input id="qty" type="number">
+        <button type="button" onclick="ok()">Ok</button>
+        <hr>
+        <h3>Name: <span id="name">?</span></h3>
+        <h3>Amount: <span id="amount">?</span></h3>
+    </body>
+</html>

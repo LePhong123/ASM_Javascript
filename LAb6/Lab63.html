@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function swap(type){
+    const img= document.getElementById('imge')
+    if(type){
+        img.src="img/anh2.jpg";
+    }else{
+        img.src='img/anh5.jpg';
+    }
+}
+        var anhAr=[];
+        var    currentIndex=0;
+        function loadAnh(){
+            for(var i =1;i<6;i++){
+                anhAr[i]=new Image();
+                anhAr[i].src="../LAb6/img/anh"+i+".jpg";
+            }
+        }
+        function next(){
+            if(currentIndex<5){
+                currentIndex++;
+                document.getElementById("imge").src = anhAr[currentIndex].src;
+            }
+        }
+        function prev(){
+            if(currentIndex > 1){
+                currentIndex--;
+                document.getElementById("imge").src = anhAr[currentIndex].src;
+            }
+        }
+        function first(){
+            document.getElementById("imge").src = anhAr[1].src;
+        }
+        function last(){
+            document.getElementById("imge").src = anhAr[5].src;
+        }
+    </script>
+</head>
+<body onload="loadAnh()">   
+        <img src="img/anh1.jpg" alt="" id="imge" onmouseover="swap(true)"
+        onmouseout="swap(false)">
+    <div>
+        <button class="first" onclick="first()">First</button>
+        <button class="prev" onclick="prev()">Prev</button>
+        <button class="next" onclick="next()">Next</button>
+        <button class="last" onclick="last()">Last</button>
+    </div>
+</body>
+</html>

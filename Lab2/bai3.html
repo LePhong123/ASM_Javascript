@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script type="text/javascript"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var x =prompt("Mời bạn nhập trọng lượng cơ thể:");
+            var y=prompt("Mời bạn nhập chiều cao");
+            bmi=x/(y*y);
+            document.write("BMI: "+bmi)
+            if(bmi<18.5){
+                alert("Thiếu cân");
+            }else if(bmi>=18.5 && bmi<25){
+                alert("Bình thường")
+            }else if(bmi >=25 && bmi<30){
+                alert("Thừa cân");
+            }else{
+                alert("Béo thì");
+            }
+        </script>
+    </body>
+</html>

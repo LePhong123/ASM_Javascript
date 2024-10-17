@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="products">
+            <h3>DANH MỤC HÀNG HÓA</h3><br>
+            <table border="1">
+                <tbody >
+                    <tr>               
+                       <td>iPhone9</td>
+                        <td>$<span class="amount"> 2700</span></td>
+                        <td><button  onclick="them(this)">Them</button></td>
+                    </tr>
+                    <tr>                       
+                        <td>Samsung Star</td>
+                        <td>$<span class="amount"> 1500</span></td>
+                        <td><button  onclick="them(this)">Them</button></td>
+                    </tr>
+                    <tr>                       
+                        <td>Nokia 2020</td>
+                        <td>$<span class="amount"> 1200</span></td>
+                        <td><button  onclick="them(this)">Them</button></td>
+                    </tr>
+                    <tr>                       
+                        <td>Sony Xperia</td>
+                        <td>$<span class="amount"> 1700</span></td>
+                        <td><button onclick="them(this)">Them</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+        <br>
+            <h3>GIỎ HÀNG CỦA BẠN</h3>
+            <table border="1" id="cartItems" >
+                
+            </table >
+            <h4>
+                Tổng tiền : $ <span id="tong"></span>
+            </h4>
+    </div>
+    <script>
+        function them(button){
+             var row = button.parentElement.parentElement.cloneNode(true); 
+             var btnXoa = row.getElementsByTagName("button")[0]; btnXoa.innerText = "Xóa"; btnXoa.setAttribute("onclick", "xoa(this)"); 
+             document.getElementById("cartItems").appendChild(row);
+             tinhTong();
+         }
+         function xoa (button){
+            var row = button.parentElement.parentElement; 
+            document.getElementById("cartItems").removeChild(row); 
+            tinhTong();
+         }
+         function tinhTong(){
+            var cart = document.getElementById("cartItems");
+            var rows = cart.getElementsByTagName("tr");
+            var tong= 0;
+            for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var price = cells[1].innerText.substr(1);
+            tong += 1*price; 
+            document.getElementById("tong").innerText = tong; 
+            }
+        }
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+<input type="file" id="files" multiple>
+<div id="imageContainer"></div>
+
+
+
+<script>
+
+$(document).ready(function() {
+    if (window.File && window.FileList && window.FileReader) {
+        $("#files").on("change", function(e) {
+            var files = e.target.files;
+            var filesLength = files.length;
+            var container = $("#imageContainer");
+
+            for (var i = 0; i < filesLength; i++) {
+                var file = files[i];
+                var fileReader = new FileReader();
+
+                fileReader.onload = (function(e) {
+                    var imageUrl = e.target.result;
+                    var image = $("<img>").addClass("imageThumb").attr("src", imageUrl);
+                    container.append(image);
+                });
+
+                fileReader.readAsDataURL(file);
+            }
+        });
+    } else {
+        alert("Your browser doesn't support File API");
+    }
+});
+</script>

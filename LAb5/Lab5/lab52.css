@@ -1,0 +1,24 @@
+.class1{
+    margin: auto;
+    width: 50%;
+}
+.de{
+    display: block;
+    font-size: 1em;
+    margin: 20px 0 20px;
+    font-weight: bold;
+}
+table,td,th{
+    border: 1.3px solid rgb(115, 115, 113);
+    border-collapse: collapse;
+     
+}
+table{
+    width: 40%;
+}
+.gran{
+    font-size: 1em;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+}

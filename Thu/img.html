@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="img/">
+    <style>
+        /* CSS để hiển thị hình ảnh */
+        .imageContainer {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .imageContainer img {
+            width: 150px;
+            height: 150px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="fileInput" multiple>
+    <button onclick="uploadImages()">Upload Images</button>
+    <div class="imageContainer" id="imageContainer"></div>
+
+    <script src="gallery.js"></script>
+    <button onclick="displayImagesFromFolder()">Hiển thị hình ảnh từ thư mục</button>
+</body>
+</html>
+<script>
+    function uploadImages() {
+    var files = document.getElementById('fileInput').files;
+    var imageContainer = document.getElementById('imageContainer');
+
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+            var imgElement = document.createElement('img');
+            imgElement.src = event.target.result;
+            imgElement.className = 'uploadedImage';
+
+            imageContainer.appendChild(imgElement);
+        };
+
+        reader.readAsDataURL(file);
+    }
+}
+
+// Xóa tất cả hình ảnh khỏi container
+function clearImages() {
+    var imageContainer = document.getElementById('imageContainer');
+    imageContainer.innerHTML = '';
+}
+function displayImagesFromFolder() {
+    var imgFolder = 'img/'; // Đường dẫn đến thư mục hình ảnh
+    var imageContainer = document.getElementById('imageContainer');
+
+    // Xóa hết hình ảnh cũ trong container trước khi thêm mới
+    imageContainer.innerHTML = '';
+
+    // Sử dụng XMLHttpRequest để gửi yêu cầu GET đến thư mục "img"
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', imgFolder, true);
+
+    xhr.onload = function() {
+        if (xhr.status == 200) {
+            // Lấy danh sách tên các tệp trong thư mục
+            var files = JSON.parse(xhr.responseText);
+
+            // Tạo các thẻ img cho mỗi tệp trong danh sách
+            files.forEach(function(file) {
+                var imgElement = document.createElement('img');
+                imgElement.src = imgFolder + file;
+                imgElement.className = 'uploadedImage';
+                imageContainer.appendChild(imgElement);
+            });
+        }
+    };
+
+    xhr.send();
+}
+function removeImage(imageElement) {
+    imageElement.parentNode.removeChild(imageElement);
+}
+</script>

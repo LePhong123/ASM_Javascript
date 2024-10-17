@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="return Li()">
+        <table border="0">
+            <tr>
+                <td></td>
+                <td><div id="mess" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>Tên sách</td>
+                <td><input type="text" name="" id="ten"></td>
+            </tr>
+            <tr>
+                <td>Nhà sản xuất:</td>
+                <td><input type="text" name="" id="nha"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Hien thị</button></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function Li(){
+            var a= document.getElementById("ten").value;
+            var b= document.getElementById("nha").value;
+            if(a==""){
+                messenge("Bạn hãy nhập tên !");
+                return false;
+            }
+            if(b==""){
+                messenge("Bạn hãy nhập NSX !");
+                return false;
+            }
+            return true;
+        }
+        function messenge(m){
+            document.getElementById("mess").innerHTML=m;
+        }
+    </script>
+</body>
+</html>

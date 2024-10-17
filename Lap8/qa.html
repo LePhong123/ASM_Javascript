@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    b.đầu , dừng
+    <div id="slideshow">
+        <img src="bantim.jpg" alt="" style="text-align: center;" width="300px"
+            height="200px" />
+        <button onclick="Start()">Bắt đầu</button>
+        <button onclick="Stop()">Dừng</button>
+    </div>
+    <script>
+        var slide = document.querySelector('#slideshow img');
+        var arrImage = [
+            'cuoinuoc.jpg',
+            'icon.jpg',
+            'met.jpg'
+        ]
+        var index = 0;
+        function showImage() {
+
+            if (index < 0 || index > 2)
+
+                index = 0;
+            slide.src = arrImage[index];
+            index++;
+        }
+        var interval = setInterval(showImage, 1000);
+        function Stop() {
+            clearInterval(interval)
+        }
+        function Start() {
+            interval = setInterval(showImage, 1000);
+        }
+    </script>
+</body>
+</html>

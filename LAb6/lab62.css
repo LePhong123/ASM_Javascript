@@ -1,0 +1,27 @@
+.conter{
+    width: 400px;
+    height: 500px;
+    margin: auto;
+}
+.o{
+    display: flex;
+    
+    height: 95px;
+    width: 270px;
+}
+.buts{
+    
+    margin: 5px;
+    font-size: 5em;
+    font-weight: bold;
+    width: 90px;
+    height: 90px;
+}
+.xbtn{
+    background-color:  aqua;
+}
+.obtn{
+    background-color: yellow;
+}
+
+

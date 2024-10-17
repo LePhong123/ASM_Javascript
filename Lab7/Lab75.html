@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function hien_thi(visible){
+            var phi_vc = document.getElementById("phi_vc");
+            phi_vc.style.display = visible ? "" : "none";
+        }
+        function kiem_tra(){
+            var sp = document.getElementById("san_pham");
+            if(sp.value.length == 0){
+                alert("Vui lòng nhập tên sản phẩm");
+                return false;
+            }
+            var gia = document.getElementById("don_gia"); 
+            if(isNaN(gia.value)){ 
+
+            alert("Vui lòng nhập số!"); 
+            return false;
+            }
+            else if(parseFloat(gia.value) <= 0){ 
+            alert("Vui lòng nhập số dương!"); 
+            return false; 
+            } 
+           
+            var loai = document.getElementById("loai"); 
+            if(loai.value.length == 0){ 
+            alert("Vui lòng chọn loại sản phẩm!"); 
+            return false; 
+            } 
+          
+            var radios = document.getElementsByName("dia_chi"); 
+            if(!radios[0].checked && !radios[1].checked){ 
+            alert("Vui lòng chọn nơi nhận hàng!"); 
+            return false; 
+            }
+            alert("Chúc mừng bạn đã nhập đúng");
+            return true; 
+    }
+    </script>
+</head>
+<body>
+    <form action="" onsubmit="kiem_tra()">
+        <h1>ĐẶT HÀNG</h1>
+    <span>Sản Phẩm</span>
+    <input type="text" id="san_pham"><br><br>
+    <span>Loại</span>
+    <select id="loai" style="margin-left: 30px;">
+        <option value="0"></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select><br><br>
+    <span>Đơn giá</span>
+    <input type="text" id="don_gia"><br><br>
+    <span>Nơi nhận hàng</span>
+        <input type="radio" name="dia_chi" onclick="hien_thi(false)">Nội thành
+        <input type="radio" name="dia_chi" onclick="hien_thi(true)">Ngoại thành
+        <div id="phi_vc">
+            <span>Phí vận chuyển</span>
+            <input type="text">
+        </div>
+        <br><br>
+
+    <button value="Submit">Đặt mua</button>
+</form>
+</body>
+</html>

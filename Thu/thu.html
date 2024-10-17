@@ -1,0 +1,25 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<button onclick="$('#upload_files').click()">Open file</button>
+
+<input type="file" id="upload_files" class="d-none" multiple/>
+<script>
+    $(document).on("change", "#upload_files", async function(e) {
+
+for (let x = 0; x < this.files.length; x++){
+  
+  let form_data = new FormData();
+  form_data.append('file', this.files[x]);
+  form_data.append('folderID', 'open_folder');
+  await $.ajax({
+    'url':'/domain/files.upload_file',
+    'type':'POST',
+    'data': form_data,
+     'contentType': false,
+    'processData': false
+  }).catch(e=>console.log(e));
+}
+});
+</script>

@@ -1,0 +1,22 @@
+<html>
+    <head></head>
+    <body>
+        <script> 
+            var sv = new Object();
+            sv.hoten = prompt("Họ và tên: ");
+            sv.diem = prompt("Điểm :");
+            sv.hienthi = function()
+            {
+                if(this.diem >= 5){
+                this.hocLuc = "Đậu";
+                } else {
+                this.hocLuc = "Rớt";
+                }
+                document.write("<h3>Họ và tên: "+this.hoten+"</h3>");
+                document.write("<h3>Điểm TB: "+this.diem+"</h3>");
+                document.write("<h3>Học lực: "+this.hocLuc+"</h3>"); 
+            }
+        </script>
+        <button onclick="sv.hienthi();">Hiển thị</button> 
+    </body>
+</html>

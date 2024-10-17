@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <a href=""><img id="imge" src="bantim.jpg"  alt="">
+        <button onclick="Chnae()">bắt đầu</button>
+        <script>
+            var inr=1;
+            function Chnae(){
+                var img=["icon.jpg","sung.jpg","ngau.jpg"];
+                document.getElementById('imge').src=img[inr];
+                inr++;
+                if(inr==3){
+                    inr=0;
+                }
+            }
+            setInterval(Chnae,1000)
+        </script>
+    </a> -->
+    <form action="" onsubmit="return Vali()">
+        <table border="0" align="center">
+            <div id="kiemtra"></div>
+            <tr>
+                <td width="100"> Tên sách :</td>
+                <td width="200"><input type="text" id="sach"></td>
+            </tr>
+            <tr>
+                <td width="100">Nhà sản xuất</td>
+                <td width="200"><input type="text" id="NSX"></td>
+            </tr>
+            <tr>
+                <td width="100">Số lượng</td>
+                <td width="200"><input type="number"></td>
+            </tr>
+            <tr>
+                <td width="100">Đơn giá</td>
+                <td width="200"><input type="number"></td>
+                <td><select name="" id="">
+                    <option value="">USD</option>
+                    <option value="">VNĐ</option>
+                    <option value="">EUD</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td width="100">ngày/tháng/năm sản xuất :</td>
+                <td width="200"><input type="date"></td>
+            </tr>
+            <tr>
+                <td width="100">Loại sách:</td>
+                <td width="200"><select multiple="multiple">
+                    <option value="">Ngữ văn</option>
+                    <option value="">Địa lý</option>
+                    <option value="">Công dân</option>
+                    <option value="">Tam quốc</option>
+                    <option value="">Tóan</option>
+                    <option value="">Anh</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td width="100">Sản phẩm đang có :</td>
+                <td width="200"><input type="checkbox">trong kho
+                                <input type="checkbox">ngoài cửa 
+                                <input type="checkbox">hết
+                </td>
+            </tr>
+            <tr>
+                <td width="69">Nơi nhận hàng </td>
+                <td>
+                <input type="radio" name="dia_chi" >Nội thành
+                <input type="radio" name="dia_chi" >Ngoại thành
+                
+                </td>                
+            </tr>
+            <tr>
+           <td width="120"><button type="submit">hiển thị thông tin</button></td>
+           <td><button type="reset">xóa thông tin</button></td>
+           </tr>
+        </table>
+    </form>
+    <script>
+        function Vali(){
+            var sach=document.getElementById("sach").value;
+            var nsx=document.getElementById("NSX").value;
+            
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+            if(sach==""){
+                messenge("Vui lòng nhập tên sách");
+                return false;
+
+            }
+            if(nsx=="")
+            if (!filter.test(nsx.value)) { 
+             messenge('Hay nhap dia chi email hop le.\nExample@gmail.com');
+             nsx.focus; 
+             return false; 
+    }
+            if(nsx=="")
+            return true;
+        }
+
+
+        function messenge(m){
+            document.getElementById("kiemtra").innerHTML=m;
+        }
+    </script>
+    <a href=""><img onclick="ViLu()" id="pho" src="yeu.jpg" alt=""></a>
+    <script>
+        var inr=1;
+        function ViLu(){
+            var img=["icon.jpg","sung.jpg","met.jpg"];
+            document.getElementById("pho").src=img[inr];
+            inr ++;
+            if(inr==3){
+                inr=0;
+            }
+           
+        }
+        setInterval(ViLu,1000);
+    </script>
+    <a href=""><img onclick="LiVu()" id="img" src="bantim.jpg" alt="">
+        
+    </a>
+    <script>
+        var inr=1;
+        var img=["sung.jpg","yeu.jpg","met.jpg"];
+        document.getElementById("img").src=img[inr];
+        inr++;
+        if(inr==3){
+            inr=0;
+        }
+        
+    </script>
+</body>
+</html>

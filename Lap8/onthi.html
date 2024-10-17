@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form  name="f1" method="post" action="" onSubmit="return xuly()">
+        <table border="0" align="center" cellpadding="1" cellspacing =0>
+            <tr>
+                <td></td>
+                <td><div id="mess" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td width="69">Tên sách </td>
+                <td width="270"><input size=35 name=nameSach> </td>
+            </tr>
+            <tr>
+                <td width="69">Nhà xuất bản </td>
+                <td width="270"><input size=35 name=nameNXB> </td>
+            </tr>
+            <tr>
+                <td width="69">Số lượng</td>
+                <td width="270"><input type="number" onchange="thanhtien(this)" id="soluong"></td>
+            </tr>
+            <tr>
+             <td width="69">Đơn giá  </td>
+             <td width="270"><input type="text"  id="gia"> </td>
+             <td>
+                <select style="margin-left: 30px;">
+                    <option value="0">VNĐ</option>
+                    <option value="1">USD</option>
+                    <option value="2">RUB</option>
+                </select>
+             </td>
+            </tr>
+            <tr>
+                <td width="69">Tổng tiền  </td>
+                <td width="270" ><input type="number" readonly id="thanhtien" ></td>
+                
+            </tr>
+            <tr>
+                <td width="69">Ngày tháng năm xuất bản  </td>
+             <td width="270"><input type="date" name="bday" min ="1990-01-01"> </td>
+            </tr>
+            <tr>
+                <td width="69">Loại sách  </td>
+                <td> 
+                    <select multiple="multiple">
+                        <option>Sách thiếu nhi</option>
+                        <option>Sách khoa học kĩ thuật</option>
+                        <option>Sách văn học</option>
+                        <option>Sách địa lý</option>
+                        <option>Sách ngoại ngữ</option>
+                        <option>Sách pháp luật</option>
+                        <option>Loại khác</option>
+                        </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="69">Người nhập </td>
+                <td width="270"><input size=35 name=nguoiNhap> </td>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td width="69">Sản phẩm đang có </td>
+                <td>
+                    <input type="checkbox" name="favor" id="read" /><label for="read">Trong kho</label>
+                    <input type="checkbox" name="favor" id="travel" /><label for="travel">Bày bán</label><br>
+                    <input type="checkbox" name="favor" id="music" /><label for="music">Chưa kiểm tra</label>
+                </td>
+            </tr>
+            <tr>
+                <td width="69">Nơi nhận hàng </td>
+                <td>
+                <input type="radio" name="dia_chi" onclick="hien_thi_gia(false)">Nội thành
+                <input type="radio" name="dia_chi" onclick="hien_thi_gia(true)">Ngoại thành
+                <div id="phi_vc">
+                    <span>Phí vận chuyển</span><br>
+                    <input type="text" value="30000" >
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button value="Submit">Hiển thị thông tin</button>
+                    &nbsp;&nbsp; <input  type=reset value="Xóa thông tin">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

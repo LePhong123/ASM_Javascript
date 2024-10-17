@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        /* CSS để hiển thị hình ảnh */
+        .imageContainer {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .imageContainer img {
+            width: 150px;
+            height: 150px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="fileInput" multiple>
+    <button onclick="uploadImages()">Upload Images</button>
+    <div class="imageContainer" id="imageContainer"></div>
+
+    <script src="gallery.js"></script>
+</body>
+</html>
+
+
+
+<script>
+function uploadImages() {
+    var files = document.getElementById('fileInput').files;
+    var imageContainer = document.getElementById('imageContainer');
+
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+            var imgElement = document.createElement('img');
+            imgElement.src = event.target.result;
+            imgElement.className = 'uploadedImage';
+
+            imageContainer.appendChild(imgElement);
+        };
+
+        reader.readAsDataURL(file);
+    }
+}
+
+// Xóa tất cả hình ảnh khỏi container
+function clearImages() {
+    var imageContainer = document.getElementById('imageContainer');
+    imageContainer.innerHTML = '';
+}
+</script>
